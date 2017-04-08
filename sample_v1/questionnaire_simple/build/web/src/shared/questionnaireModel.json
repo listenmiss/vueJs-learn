@@ -1,0 +1,35 @@
+//问题
+export interface QuestionModel{
+	title:string;
+	type:QuestionType;
+	options?:any[];
+	answer:any;
+}
+
+export const enum QuestionType
+{
+	Text,
+	SingleSelect,
+	MultiSelect,
+	Score
+}
+
+
+
+//问卷
+{
+    "id": "问卷ID",
+    "title": "问卷标题",
+    "starter": "开始问候语",
+    "ending": "结束问候语",
+    "state": QuestionnaireState; //问卷状态
+    "questionList": QuestionModel[];  //问题列表
+    "createDate":"创建日期"
+}
+
+//问卷状态枚举类型 QuestionnaireState
+export const enum QuestionnaireState{
+  Created,   //已创建状态
+  Published, //发布回收状态
+  Finished   //完成状态
+}

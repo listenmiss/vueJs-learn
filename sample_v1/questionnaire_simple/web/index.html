@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>调查问卷管理系统</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="img/favicon/logo.png" type="image/x-icon">
+        <link rel="stylesheet" href="./vendor/bootstrap-3.3/css/bootstrap.min.css">
+
+        <link href="css/signin.css" rel="stylesheet">
+        <link href="css/edit.css" rel="stylesheet">
+        <link href="css/home.css" rel="stylesheet">
+        <style type="text/css">
+            img{
+                margin:0 auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <router-view></router-view>
+        </div>
+
+
+        <!--        <script id="login" type="x-template">
+                    <div >
+                    Hi listen
+                    </div>
+                </script>-->
+
+
+        <template id="login">
+            <div class="login_bg">
+                <div class="signin">
+                    <div class="signin-head"><img src="img/login/test/head_120.png" alt="" class="img-circle"></div>
+                    <form class="form-signin" role="form">
+                        <input type="text" class="form-control" placeholder="用户名" required autofocus />
+                        <input type="password" class="form-control" placeholder="密码" required />
+                        <a v-link="{ path:'/main/home'}" > <button class="btn btn-lg btn-warning btn-block" type="submit">登录</button></a>
+                        <!--<router-link to='/main' > <button class="btn btn-lg btn-warning btn-block" type="submit">登录</button></router-link> v2.0-->
+                        <label class="checkbox">
+                            <input type="checkbox" value="remember-me"> 记住我
+                        </label>
+                    </form>
+                </div>
+            </div>
+        </template>
+
+
+        <template id="main">
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li ><a v-link="{ path:'/main/home'}" >首页</a></li>
+                            <li> <a v-link="{path:'center'}" >我的问卷</a></li>
+                            <li><a v-link="{ path:'about'}" >帮助</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a v-link="{path:'edit'}">创建新问卷</a></li>
+                            <li><a v-link="{path:'/'}">注册</a></li>
+                            <li><a v-link="{path:'/'}">登录</a></li>
+
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+            <router-view></router-view>
+        </template>
+
+        <template id="home">
+            <div id="myCarousel" class="carousel slide">
+                <!-- 轮播（Carousel）指标 -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>   
+                <!-- 轮播（Carousel）项目 -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img src="img/home/banner_01.jpg" alt="First slide">
+                        <div  class="carousel-caption">
+                            <p >免费简约的问卷系统</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="img/home/banner_02.jpg" alt="First slide">
+                        <div  class="carousel-caption">
+                            <p >简单 好用 在线调查网站</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="img/home/banner_03.jpg" alt="First slide">
+                        <div  class="carousel-caption">
+                            <p >多方式创建编辑问卷</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Controls -->
+                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+
+            </div>
+            <section >
+                <h2  class="hero-title ">
+                    <span >10,145,267</span>个用户正在使用
+                    <a v-link="{path:'/main/edit'}" class="btn btn-success btn-lg"  >创建新问卷</a>
+                </h2>
+            </section>
+        </template>
+
+        <template id="about">
+            <div style="margin:5px">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" href="" tabindex="0">
+                                <span>常见FAQ</span>
+                            </a>
+                        </h4>
+                    </div>
+                    <div class="panel-collapse collapse in" aria-expanded="true" aria-hidden="false" style="overflow: visible; height: auto; display: block;">
+                        <div class="panel-body">
+                            <div _ngcontent-sym-4="" class="row">
+                                <div _ngcontent-sym-4="" class="col-lg-3">
+                                    <img _ngcontent-sym-4="" src="./img/about/faq.jpg" ng-reflect-alt="常见FAQ" alt="常见FAQ">
+                                </div>
+                                <div  class="col-lg-9">
+                                    使用问卷收集数据的基本流程是：创建问卷、编辑问卷、设置问卷、预览问卷、回收问卷、数据分析等几个步骤。问卷提供三种创建问卷方式，创建空白问卷、选择问卷模板、文本编辑器。可以灵活设置问卷的显示、回收条件，在线实时统计回收结果，并可以导出Excel和SPSS数据。详细操作指引请参照帮助中心”操作指引“部分。
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" href="" tabindex="0">
+                                <span>常见FAQ</span>
+                            </a>
+                        </h4>
+                    </div>
+                    <div class="panel-collapse collapse in" aria-expanded="true" aria-hidden="false" style="overflow: visible; height: auto; display: block;">
+                        <div class="panel-body">
+                            <div _ngcontent-sym-4="" class="row">
+                                <div _ngcontent-sym-4="" class="col-lg-3">
+                                    <img _ngcontent-sym-4="" src="./img/about/create.jpg" ng-reflect-alt="创建问卷" alt="创建问卷">
+                                </div>
+                                <div  class="col-lg-9">
+                                    问卷，共有三种创建问卷的方式让您来选择使用：创建空白问卷、选择问卷模板、文本编辑器，可根据自身的使用习惯，选择最合适的方式来快速创建一份问卷。
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" href="" tabindex="0">
+                                <span>常见FAQ</span>
+                            </a>
+                        </h4>
+                    </div>
+                    <div class="panel-collapse collapse in" aria-expanded="true" aria-hidden="false" style="overflow: visible; height: auto; display: block;">
+                        <div class="panel-body">
+                            <div _ngcontent-sym-4="" class="row">
+                                <div _ngcontent-sym-4="" class="col-lg-3">
+                                    <img _ngcontent-sym-4="" src="./img/about/my.jpg" ng-reflect-alt="我的问卷" alt="我的问卷">
+                                </div>
+                                <div  class="col-lg-9">
+                                    问卷编辑、预览完成后，一份在线问卷即完成，此时可以通过对问卷的复制、编辑、删除、发布、统计、导出、分享等功能，实现对问卷的全面管理
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+
+        <template id="center">
+            <div style="margin:5px">
+                <div class="row">
+                    <div class="col-md-7"  >
+                        <div  class="panel panel-success">
+                            <div  class="panel-heading">问卷列表</div>
+                            <div  class="list-group">
+			                <a class="list-group-item questionnaire-item" v-for=" (i,item) in questionnaires"
+			                    @click="onSelect(item, i)" v-bind:class="{'active':item===selectedQuestionnaire}">
+			                    <questionnaire-item v-bind:questionnaire="item"></questionnaire-item>
+			                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+
+                        <div  class="panel panel-success">
+                            <div  class="panel-heading">问卷详情</div>
+                            <div  class="panel-body">
+                                <questionnaire-detail v-bind:questionnaire="selectedQuestionnaire"></questionnaire-detail>
+                            </div>
+                        </div>
+
+                        <div  class="panel panel-warning">
+                            <div  class="panel-heading">问卷管理</div>
+                            <div  class="panel-body">
+                              <questionnaire-controls v-bind:questionnaire="selectedQuestionnaire"></questionnaire-controls>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </template>
+
+
+        <template id="edit">
+            <div style="margin:5px">
+                <div class="row">
+                    <div class="col-md-3"  >
+                        <ul id="myTab" class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#question-select" id="question-select-tab" role="tab" data-toggle="tab" aria-controls="question-select" aria-expanded="true">
+                                    问题控件
+                                </a>
+                            </li>
+
+                            <li role="presentation" >
+                                <a href="#questionnaire-outline" id="questionnaire-outline-tab" role="tab" data-toggle="tab" aria-controls="questionnaire-outline" aria-expanded="false">
+                                    问卷大纲
+                                </a>
+                            </li>
+                        </ul>
+                        <div id="myTabContent" class="tab-content">
+
+                            <div role="tabpanel" class="tab-pane fade active in" id="question-select" aria-labelledby="question-select-tab">
+                                <question-select></question-select>
+                            </div> 
+
+                            <div role="tabpanel" class="tab-pane fade  in" id="questionnaire-outline" aria-labelledby="questionnaire-outline-tab">
+                                问卷大纲
+                            </div> 
+                        </div>
+                    </div>
+                    <div class="col-md-9 questionnaire-container">
+                        <questionnaire v-bind:questionnaire="questionnaire"></questionnaire>
+
+                    </div>
+                </div>
+            </div>
+        </template>
+
+
+        <template id="question_text">
+		<p>问答题</p>
+		<div v-if="!editable">
+		  <p>{{question.title}}</p>
+		  <input placeholder="请输入问题的答案" class="form-control" v-model="question.answer" />
+		</div>
+		
+		<div v-if="editable">
+		  <input placeholder="请输入问题" class="form-control" v-model="question.title" required />
+		  <div class="btns">
+		    <button @click="onSave" class="btn">保存</button>
+		    <button @click="onCancel" class= "btn">取消</button>
+		  </div>
+		</div>
+        </template>
+        <template id="question_radio">
+            <p>单选题</p>
+			<div v-if="!editable">
+			    <p>{{question.title}}</p>
+			    <div v-for="option in question.options" class="radio">
+			        <label>
+			            <input name="group" type="radio" id="{{option.key}}">{{option.value}}
+			        </label>
+			    </div>
+			</div>
+			<div v-else>
+			    <input placeholder="请输入问题" class="form-control" v-model="question.title" required />
+			    <div class="row pt-20" v-for="(i,option) in question.options">
+			        <div class="col-lg-10">
+			            <input placeholder="请填写选项" class="form-control" v-model="option.value" type="text" />
+			        </div>
+			        <div class="col-lg-2">
+			            <span  v-if="question.options.length > 1" class="del-icon" v-on:click="onDeleteOption(i)">X</span>
+			        </div>
+			    </div>
+			   <div class="btns">
+			    <button @click="onSave" class="btn btn-default">保存</button>
+			     <button @click="onAddOption" class="btn btn-default">添加选项</button>
+			    <button @click="onCancel" class= "btn btn-default">取消</button>
+			  </div>
+			</div>
+        </template>
+
+        <template id="question_checkbox">
+			<p>复选题</p>
+			<div v-if="!editable">
+			    <p>{{question.title}}</p>
+			    <div v-for="option in question.options" class="radio">
+			        <label>
+			            <input name="group" type="checkbox" id="{{option.key}}"
+			                v-on:click="setSelectedValue($event.target.checked, option.value)">{{option.value}}
+			        </label>
+			    </div>
+			</div>
+			<div v-else>
+			    <input placeholder="请输入问题" v-model="question.title" class="form-control" required />
+			    <div class="row pt-20" v-for="(i,option) in question.options">
+			            <div class="col-lg-10">
+			                <input placeholder="请填写选项" class="form-control" class="form-control" v-model="option.value" type="text" />
+			            </div>
+			            <div class="col-lg-2">
+			                <span v-if="question.options.length > 1" class="del-icon"  v-on:click="onDeleteOption(i)">X</span>
+			            </div>
+			        </div>
+			    <div class="btns">
+			        <button  v-on:click="onSave" class="btn btn-default">保存</button>
+			        <button  v-on:click="onAddOption" class="btn btn-default">添加选项</button>
+			        <button  v-on:click="onCancel" class= "btn btn-default">取消</button>
+			    </div>
+			</div>
+        </template>
+
+        <template id="question_score">
+			<p>分值题</p>
+			
+			<div v-if="!editable">
+			  <p>{{question.title}}</p>
+			  <p class="range-field">
+			      <label>分值：{{question.answer}}</label>
+			      <input type="range" v-model="question.answer" min="0" max="100" />
+			  </p>
+			</div>
+			
+			<div v-else>
+			  <input placeholder="请输入问题" class="form-control" v-model="question.title" required />
+			  <div class="btns">
+			    <button v-on:click="onSave" class="btn">保存</button>
+			    <button v-on:click="onCancel" class= "btn">取消</button>
+			  </div>
+			</div>
+        </template>
+
+        <template id="question_select">
+            <ul  class="question-controls list-group">
+                <li  v-on:click="questionSelectClick('Text')" class="list-group-item">
+                    <a   class="icon-text">文本问题</a>
+                </li>
+                <li  v-on:click="questionSelectClick('SingleSelect')" class="list-group-item">
+                    <a   class="icon-radio">单选问题</a>
+                </li>
+                <li v-on:click="questionSelectClick('MultiSelect')"  class="list-group-item">
+                    <a   class="icon-checkbox">多选问题</a>
+                </li>
+                <li  v-on:click="questionSelectClick('Score')" class="list-group-item">
+                    <a   class="icon-star">分值问题</a>
+                </li>
+
+            </ul>
+        </template>
+
+        <template id="questionnaire">
+
+            <div  class="questionnaire-container">
+                <div  class="questionnaire">
+                	<h1 v-if="!editable" class="text-center">{{questionnaire.title}}</h1>
+                    <h1  v-else class="text-center">
+                        <input  class="form-control" placeholder="问卷标题" v-model="questionnaire.title">
+                    </h1>
+                    <p v-if="!editable" class="text-center">{{questionnaire.starter}}</p>
+                    <p v-else class="text-center">
+                        <input  class="form-control" placeholder="开头欢迎语" v-model="questionnaire.starter">
+                    </p>
+                    <ul >
+                        <li v-for="(i,q) in questionnaire.questionList">
+                            <label>第{{i + 1}}题：</label>
+                            <div v-if="q.type === 'Text' ">
+                                <question-text v-bind:editable="editable"></question-text>
+                            </div>
+                            <div v-if="q.type === 'SingleSelect'" >
+                                <question-radio v-bind:editable="editable" v-bind:question="q"></question-radio>
+                            </div>
+                            <div v-if="q.type === 'MultiSelect' ">
+                                <question-checkbox v-bind:editable="editable" v-bind:question="q"></question-checkbox>
+                            </div>
+                            <div v-if="q.type === 'Score' ">
+                                <question-score v-bind:editable="editable" v-bind:question="q"></question-score>
+                            </div>
+                        </li>
+
+                    </ul>
+			        <p v-if="!editable" class="text-center">{{questionnaire.ending}}</p>
+			        <p v-else class="text-center">
+			            <input placeholder="结尾感谢语" class="form-control" v-model="questionnaire.ending"/>
+			        </p>
+                </div>
+            </div>
+            <div  class="text-center"> 
+                <button  class="btn btn-primary" type="button" v-bind:style="questionnaire.submitStyle" v-on:click="onSubmit">
+                	{{isPreviewPage?"返回":"提交"}}
+                </button>
+            </div>
+        </template>
+
+
+
+
+		<template id="questionnaire_item">
+			{{questionnaire.title}}
+			<span class="label" v-bind:class="stateClass">{{stateText}}</span>
+			<span class="pull-right">{{questionnaire.createDate}}</span>
+		</template>
+		
+		<template id="questionnaire_detail">
+			<!--判断变量是否为空-->
+			<table v-if="questionnaire" class="table">
+			    <tr>
+			        <td>问卷标题：</td>
+			        <td>{{questionnaire.title}}</td>
+			    </tr>
+			    <tr>
+			        <td>问卷简介：</td>
+			        <td>{{questionnaire.starter}}</td>
+			    </tr>
+			    <tr>
+			        <td>问题总数：</td>
+			        <td>{{questionnaire.questionList.length}}</td>
+			    </tr>
+			    <tr>
+			        <td>创建时间：</td>
+			        <td>{{questionnaire.createDate}}</td>
+			    </tr>
+	
+			</table>
+		</template>
+		<template id="questionnaire_controls">
+			<div class="row" v-if="questionnaire">
+		    <div class="col-lg-3">
+		        <button type="button" class="btn btn-default btn-lg" @click="onPreview">
+		            <span class="glyphicon glyphicon-search"></span>
+		            <span class="control-text">预览</span>
+		        </button>
+		    </div>
+		    <div class="col-lg-3" v-if="questionnaire.state==='Created'">
+		        <button type="button" class="btn btn-default btn-lg" v-on:click="onEdit">
+		            <span class="glyphicon glyphicon-pencil"></span>
+		            <span class="control-text">编辑</span>
+		        </button>
+		    </div>
+		    <div class="col-lg-3" v-if="questionnaire.state==='Created'">
+		        <button type="button" class="btn btn-default btn-lg" @click="onPublish">
+		            <span class="glyphicon glyphicon-plane"></span>
+		            <span class="control-text">发布</span>
+		        </button>
+		    </div> 
+		    <div class="col-lg-3" v-if="questionnaire.state==='Published'">
+		        <button type="button" class="btn btn-default btn-lg">
+		            <span class="glyphicon glyphicon-ok"></span>
+		            <span class="control-text">结束</span>
+		        </button>
+		    </div>
+		    <div class="col-lg-3">
+		        <button type="button" class="btn btn-default btn-lg" v-on:click="onDelete">
+		            <span class="glyphicon glyphicon-trash"></span>
+		            <span class="control-text">删除</span>
+		        </button>
+		    </div>
+		</div>
+		</template>
+		
+		
+		
+		<template id="published">
+			<div class = "published-container">
+			    <questionnaire v-bind:questionnaire = "questionnaire"></questionnaire>
+			</div>
+		</template>
+        <script src="./vendor/jquery/jquery-2.1.0.min.js" type="text/javascript"></script>
+        <script src="./vendor/bootstrap-3.3/js/bootstrap.min.js" type="text/javascript"></script>
+
+
+
+        <script src="https://cdn.jsdelivr.net/vue/1.0.26/vue.min.js" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/vue.router/0.7.10/vue-router.min.js" type="text/javascript"></script>
+
+        <script src="./src/login/login.js" type="text/javascript"></script>
+
+        <script src="./src/home/home.js" type="text/javascript"></script>
+        <script src="./src/about/about.js" type="text/javascript"></script>
+         <script src="./src/center/shared/questionnaire-item/questionnaire-item.js" type="text/javascript"></script>
+       <script src="./src/center/shared/questionnaire-detail/questionnaire-detail.js" type="text/javascript"></script>
+        <script src="./src/center/shared/questionnaire-controls/questionnaire-controls.js" type="text/javascript"></script>
+       <script src="./src/center/center.js" type="text/javascript"></script>
+
+
+       <script src="./src/published/published.js" type="text/javascript"></script>
+ 
+
+        <script src="./src/edit/shared/question-select/question-select.js" type="text/javascript"></script>
+
+        <script src="./src/shared/question/question-text/question-text.js" type="text/javascript"></script>
+        <script src="./src/shared/question/question-radio/question-radio.js" type="text/javascript"></script>
+        <script src="./src/shared/question/question-checkbox/question-checkbox.js" type="text/javascript"></script>
+        <script src="./src/shared/question/question-score/question-score.js" type="text/javascript"></script>
+
+        <script src="./src/shared/questionnaire/questionnaire.js" type="text/javascript"></script>
+
+        <script src="./src/edit/edit.js" type="text/javascript"></script>
+        <script src="./src/main/main.js" type="text/javascript"></script>
+
+
+        <script src="./src/index.js" type="text/javascript"></script>
+
+
+        <!--         <script src="./vendor/vue/vue.2.2.6.js" type="text/javascript"></script>
+                <script src="./vendor/vue/vue-router/2.2.1/vue-router.2.2.1.js" type="text/javascript"></script>
+                 <script src="./vendor/vue/vue-resource/1.2.1/vue-resource.min.js" type="text/javascript"></script>
+        -->
+
+    </body>
+</html>

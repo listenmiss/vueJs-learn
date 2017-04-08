@@ -1,0 +1,13 @@
+.hero-title a {
+    margin-left: 80px;
+    width: 250px;
+}
+.hero-title {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 18px;
+}
+.hero-title span{
+    color: green;
+    font-size: 22px;
+}
