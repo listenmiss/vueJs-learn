@@ -1,0 +1,19 @@
+.question-controls li a {
+    background-repeat: no-repeat;
+    padding-left: 24px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.icon-text {
+    background-image: url(../img/assets/img/edit/text.png);
+}
+
+.icon-radio {
+    background-image: url(../img/assets/img/edit/radio.png);
+}     
+.icon-checkbox {
+    background-image: url(../img/assets/img/edit/checkbox.png);
+}
+.icon-star {
+    background-image: url(../img/assets/img/edit/star.png);
+}
